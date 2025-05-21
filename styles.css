@@ -1,0 +1,212 @@
+body {
+  font-family: Arial, sans-serif;
+  text-align: center;
+  background-color: #f4f4f4;
+  margin: 0;
+  padding: 0;
+  background-color: #071820;
+  
+}
+
+     .container {
+            display: flex;
+        }
+        .main-content {
+            flex: 3;
+            
+        }
+        .sidebar {
+            flex: 1;
+            background-color: #f8f8f8;
+            padding: 1rem;
+            border-left: 1px solid #ddd;
+        }
+      .restaurant-header {
+            background-image: url('img/korean-food-709606_1920.jpg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            height: 50dvh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+          
+            
+           
+
+}
+
+.restaurant-boddem{
+            background-image: url('img/thai-food-518035_1920.jpg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            height: 50dvh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+}
+        .restaurant-header img {
+            max-width: 100px;
+            
+        }
+        .tabs {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 1rem;
+        }
+        .tabs button {
+            padding: 0.5rem 1rem;
+            border: none;
+            background-color: #eee;
+            margin: 0 0.5rem;
+            cursor: pointer;
+        }
+        .menu-section {
+            margin-top: 1rem;
+            padding: 1rem;
+        }
+
+
+        .menu-item {
+            
+            border: 1px solid #ddd;
+            margin-bottom: 1rem;
+            background-color: white;
+            display: flex;
+            justify-content: space-between;
+            padding-left: 20px;
+            
+        }
+
+        .menu-choice{
+            display: flex;
+            justify-content: flex-start;
+            flex-direction: column;
+            text-align: start;
+            
+        }
+        .menu-item h3 {
+            margin-bottom: 0.5rem;
+        }
+        .menu-item p {
+            margin-bottom: 0.5rem;
+        }
+        .menu-item .price {
+            color: #ff7f00;
+            font-weight: bold;
+        }
+        .cart {
+            background-color: white;
+            padding: 1rem;
+            border: 1px solid #ccc;
+        }
+        .cart h2 {
+            margin-bottom: 1rem;
+            
+        }
+        .cart-item {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 0.5rem;
+        }
+        .total {
+            font-weight: bold;
+            margin-top: 1rem;
+        }
+
+.white-strip {
+  width: 100%;
+  background-color: white;
+ 
+  box-sizing: border-box;
+  z-index: 2;
+  
+}
+
+.title{
+display: flex;
+justify-content: center;
+align-items: center;
+    
+}
+
+
+.plus{
+    width: 40px;
+    height: 40px;
+    color: orange;
+    font-size: 32px;
+}
+
+.logo-image {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    border: 4px solid white;
+    background-color: white;
+}
+
+.logo-container {
+    top: -36px; 
+    position: relative;
+}
+
+/* Mobile Warenkorb Button */
+#openCartBtn {
+  display: none;
+  position: fixed;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  padding: 10px 20px;
+  background-color: orange;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  z-index: 1000;
+}
+
+/* Overlay-Container */
+#cartOverlay {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.8);
+  z-index: 1001;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Inhalt im Overlay */
+#overlayCartContent {
+  background: white;
+  padding: 20px;
+  border-radius: 8px;
+  max-height: 90%;
+  overflow-y: auto;
+  width: 90%;
+  max-width: 400px;
+}
+
+/* Schließen-Button */
+#closeCartBtn {
+  background: red;
+  color: white;
+  border: none;
+  padding: 5px 10px;
+  margin-bottom: 10px;
+}
+
+/* Media Query zum Ein-/Ausblenden */
+@media (max-width: 1000px) {
+  .sidebar {
+    display: none;
+  }
+  #openCartBtn {
+    display: block;
+  }
+}

@@ -1,0 +1,168 @@
+
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="header.css">
+    <title>Fotoalbum mit Overlay</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="shopping_cart.css">
+    <link rel="stylesheet" href="opend_pic.css">
+    <link rel="stylesheet" href="footer.css">
+    <link rel="stylesheet" href="schrift.css">
+    <link rel="icon" type="image/x-icon" href="img/favicon.png">
+    <link rel="stylesheet" href="fonts.css">
+    <script src="./script.js"></script>
+    
+</head>
+<body>
+   
+   
+  <Header>
+    <div class="headimg"></div>
+    <div class="burger-menu" id="burgerMenu" onclick="toggleMenu()"> &#9776; </div>
+    
+</Header>
+
+
+
+    <div class="container">
+        <div class="main-content">
+            <div class="restaurant-header">
+                
+                 <div class="white-strip">
+                    <div class="logo-container">
+                        <img src="img/sasuke.jpg" class="logo_image" alt="Logo">
+                    </div>
+                    
+                <h2>Paradise Noodles</h2>
+                <p style="color: orange;">Bewertung (4,2 von 5 Sternen)</p>
+                <div class="tabs">
+                    <button>Hauptgerichte</button>
+                    <button>Vegane Alternativen</button>
+                </div>
+                
+                
+            </div>
+            </div>
+            <div class="menu-section">
+                <div class="menu-item">
+                    <div class="menu-choice">
+                    <h3>Pizza Krabben</h3>
+                    <p>mit Krabben und Peperoni</p>
+                    <p class="price">9,50€</p>
+                    </div>
+                    <button class="plus">+</button>
+                </div>
+                <div class="menu-item">
+                    <div class="menu-choice">
+                    <h3>Pizza Margherita</h3>
+                    <p>mit Mozarella</p>
+                    <p class="price">5,90€</p>
+                    </div>
+                    <button class="plus">+</button>
+                </div>
+                    <div class="menu-item">
+                    <div class="menu-choice">
+                    <h3>Nudelauflauf</h3>
+                    <p>feinster Nudeln mit verschiedenen Käsessorten und Schinken</p>
+                    <p class="price">10,20€</p>
+                    </div>
+                    <button class="plus">+</button>
+                </div>
+                    <div class="menu-item">
+                    <div class="menu-choice">
+                    <h3>Tuna Nudeln</h3>
+                    <p>Spirelli mit Tunfisch und Sonnenblumenöl</p>
+                    <p class="price">8,70€</p>
+                    </div>
+                    <button class="plus">+</button>
+                </div>
+            </div>
+            <div class="restaurant-boddem">    
+            </div>
+                        <div class="menu-section">
+                <div class="menu-item">
+                    <div class="menu-choice">
+                    <h3>Tofu</h3>
+                    <p>Weizen Nudeln mit Tofu und Beilagen</p>
+                    <p class="price">6,50€</p>
+                    </div>
+                    <button class="plus">+</button>
+                </div>
+                <div class="menu-item">
+                    <div class="menu-choice">
+                    <h3>Spinatnudeln</h3>
+                    <p>Spinatnudeln mit cremiger Soße, Spinat und Gemüse</p>
+                    <p class="price">11,90€</p>
+                    </div>
+                    <button class="plus">+</button>
+                </div>
+  
+
+            </div>
+        </div>
+        <div class="sidebar">
+            <div class="cart">
+                <h2>Warenkorb</h2>
+                <hr>
+                <div class="cart-item">
+                </div>
+                <hr>
+                <div class="cart-item total">
+                    
+                </div>
+                
+            </div>
+        </div>
+    </div>
+    <footer id="footer" class="footer"></footer>
+
+<!-- Button für mobile Ansicht -->
+<button id="openCartBtn">Warenkorb öffnen</button>
+
+<!-- Overlay für den Warenkorb -->
+<div id="cartOverlay">
+  <div id="overlayCartContent">
+    <button id="closeCartBtn">Schließen</button>
+    <!-- Der bestehende Warenkorb wird hierhin gespiegelt -->
+    <div id="cartContentClone"></div>
+  </div>
+</div>
+
+
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const openCartBtn = document.getElementById('openCartBtn');
+    const closeCartBtn = document.getElementById('closeCartBtn');
+    const cartOverlay = document.getElementById('cartOverlay');
+    const originalCart = document.querySelector('.sidebar');
+    const cartContentClone = document.getElementById('cartContentClone');
+
+    function syncBackToOriginal() {
+      originalCart.innerHTML = cartContentClone.innerHTML;
+    }
+
+    openCartBtn.addEventListener('click', () => {
+      cartContentClone.innerHTML = originalCart.innerHTML;
+      cartOverlay.style.display = 'flex';
+    });
+
+    closeCartBtn.addEventListener('click', () => {
+      syncBackToOriginal();
+      cartOverlay.style.display = 'none';
+    });
+
+    // Optional: Live-Sync bei Buttonklicks im Overlay (z. B. +/- Buttons)
+    cartContentClone.addEventListener('click', (event) => {
+      const target = event.target;
+      if (target && (target.classList.contains('plus') || target.classList.contains('minus'))) {
+        setTimeout(syncBackToOriginal, 50); // Warte kurz auf DOM-Update
+      }
+    });
+  });
+</script>
+
+
+</body>
+</html>
