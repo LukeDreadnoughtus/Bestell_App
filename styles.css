@@ -6,6 +6,11 @@ body {
   padding: 0;
   background-color: #071820;
   
+  
+}
+
+html{
+  scroll-behavior: smooth;
 }
 
      .container {
@@ -36,6 +41,8 @@ body {
 
 }
 
+
+
 .restaurant-boddem{
             background-image: url('img/thai-food-518035_1920.jpg');
             background-size: cover;
@@ -48,6 +55,7 @@ body {
 }
         .restaurant-header img {
             max-width: 100px;
+            border-radius: 32px;
             
         }
         .tabs {
@@ -84,6 +92,7 @@ body {
             justify-content: flex-start;
             flex-direction: column;
             text-align: start;
+           
             
         }
         .menu-item h3 {
@@ -105,7 +114,12 @@ body {
             margin-bottom: 1rem;
             
         }
-        .cart-item {
+       
+        .cart-name{
+          display: flex;
+          text-align: start;
+        }
+        .cart-buttons {
             display: flex;
             justify-content: space-between;
             margin-bottom: 0.5rem;
